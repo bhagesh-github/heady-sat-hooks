@@ -3,7 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './components/app';
 import * as serviceWorker from './serviceWorker';
+import WebFont from 'webfontloader';
 
+WebFont.load({
+  google: {
+    families: ['Open Sans', 'sans-serif']
+  }
+});
 ReactDOM.render(
   <React.StrictMode>
     <App />

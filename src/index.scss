@@ -1,11 +1,25 @@
 @import '~normalize.css/normalize.css';
+@import '~font-awesome/css/font-awesome.min.css';
 
+* {
+  &, &:after, &:before {
+    box-sizing: border-box;
+  }
+}
 body {
  font-family: 'Open Sans'; 
- font-size:40px;
+ font-size:14px;
+ background-color:#f0f0f0;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.flex {
+  display:flex;
+}
+.align-center {
+  align-items: center;
 }
