@@ -1,0 +1,42 @@
+h3 {
+    font-size:24px;
+    margin:0 0 50px;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    .product {
+        text-align:center;
+        padding:0 1px;
+        width:50%;
+        @media only screen and (min-width:991px) {
+            width:16.666%;
+        }
+        .product-inner {
+            background-color: #fff;
+            height:100%;
+        }
+        .product-image {
+            background-color:#fafafa;
+        }
+        .product-description {
+            padding:15px 5px 40px;
+            h4 {
+                margin: 0 0 10px;
+                line-height:normal;
+                font-size:16px;
+            }
+            .prices {
+                span {
+                    font-size:14px;
+                    display: inline-block;
+                    margin:0 5px;
+                    &.strike-through {
+                        color:#8f9ab0;
+                        text-decoration: line-through;
+                    }
+                }   
+            }
+        }
+    }
+}
