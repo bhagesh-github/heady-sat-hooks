@@ -11,16 +11,29 @@ header {
     align-items: center;
     border-bottom:1px solid #e5e5e5;
     transition: all 0.3s ease 0s;
+    .menus {
+        position:fixed;
+        top:56px;
+        left:0;
+        bottom:0;
+        background-color:#fff;
+        width:200px;
+        box-shadow: 2px 0 2px rgba(0,0,0,0.16);
+        transition: all 0.3s ease 0s;
+        @media only screen and (min-width:991px) {
+            float:left;
+            margin-right:15px;
+            position:static;
+            width:auto;
+            box-shadow:none;
+        }
+    }
     @media only screen and (min-width:991px) {
         min-height:102px;
         left:55px;
         border:none;
         padding:5px 95px 5px 35px;
         position:static;
-        .menus {
-            float:left;
-            margin-right:15px;
-        }
     }
     .toggle-menu {
         height:15px;

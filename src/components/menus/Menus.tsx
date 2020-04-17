@@ -1,9 +1,9 @@
 import React from 'react';
 import './Menus.scss';
 
-const Menus: React.FunctionComponent<{isOpen: string}> = ({isOpen}) => {
+const Menus: React.FunctionComponent<{isOpen?: string}> = ({isOpen}) => {
     return (
-        <div className={`menus ${isOpen}`}>
+        <div className={`menus ${isOpen ? isOpen : ''}`}>
             <ul>
                 <li><a href=""><span>Bedroom</span></a></li>
                 <li><a href=""><span>Living Room</span></a></li>
