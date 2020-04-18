@@ -1,8 +1,10 @@
 footer {
     background-color:#ffd541;
     text-align: center;
+    margin:0 -20px;
     @media only screen and (min-width:991px) {
         padding-top:120px;
+        margin:0;
     }
     .payment-types {
         @media only screen and (min-width:991px) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './related.scss';
+import './Related.scss';
 import { RelatedProducts } from '../../../../models/product';
 
 const Related: React.FunctionComponent<{products: RelatedProducts[]}> = ({products}) => {

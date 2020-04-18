@@ -85,5 +85,30 @@ export const ProductData = {
             discount_price: '$149',
             image: 'assets/images/img-rel6.png'
         }
+    ],
+    descriptions: [
+        {
+            id: 1,
+            type: 1,
+            title: 'At vero eos et accusamus et iusto odio dignissimos',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie tempor leo, sed elementum quam accumsan eu. Curabitur eget hendrerit eros, at consectetur elit. Suspendisse libero risus, pharetra sed feugiat ac, tincidunt eu sapien. Fusce molestie ipsum nec tempor tristique. Sed sed mi congue, viverra ligula nec, laoreet ligula. Quisque neque enim, faucibus quis justo mattis, viverra vehicula libero. Integer pulvinar, erat quis rhoncus maximus, eros nulla laoreet arcu, quis varius nisi ipsum vel lorem. In vehicula, mauris sed lobortis pretium, lorem nisl ornare nisi, eu fringilla turpis risus vitae mi. Aenean iaculis varius nulla malesuada lobortis. In feugiat nisi vitae auctor fermentum. Etiam malesuada tincidunt dolor et ornare. Fusce quis odio non dolor viverra aliquet. In auctor pretium tortor. Nam ultrices eget risus non laoreet.',
+            image: 'assets/images/img-product-desp1.jpg'
+        },
+        {
+            id: 2,
+            type: 2,
+            title: 'At vero eos et accusamus et iusto odio dignissimos',
+            image: 'assets/images/img-product-desp2.jpg',
+            video: 'no-link'
+        },
+        {
+            id: 3,
+            type: 3,
+            accomodation: {
+                image: 'assets/images/img-product-desp4.jpg',
+                thumb: 'assets/images/img-product-desp3.jpg',
+                pdf: 'no-link'
+            }
+        }
     ]
 }

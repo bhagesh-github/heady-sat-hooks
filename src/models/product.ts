@@ -13,16 +13,16 @@ export interface Color {
     color: string
 }
 
-export interface Details {
-    product_name: string,
-    product_rating: number,
-    average_rating: number,
-    actual_price: string,
-    discount_price: string,
+export interface ProductInfo {
+    product_name?: string,
+    product_rating?: number,
+    average_rating?: number,
+    actual_price?: string,
+    discount_price?: string,
     features: Features[],
     delivery_policies: DeliverPolicies[], 
     colors: Color[],
-    image: string
+    image?: string
 }
 
 export interface RelatedProducts {
@@ -31,4 +31,27 @@ export interface RelatedProducts {
     actual_price: string,
     discount_price: string,
     image: string
+}
+
+export interface Accomodation {
+    image: string,
+    thumb: string,
+    pdf: string
+}
+
+export interface Descriptions {
+    id: number,
+    type: number,
+    title?: string,
+    content?: string,
+    image?: string,
+    video?: string,
+    accomodation?: Accomodation 
+}
+
+export interface ProductDetails {
+    id: number,
+    details: ProductInfo,
+    related: RelatedProducts[],
+    descriptions: Descriptions[]
 }

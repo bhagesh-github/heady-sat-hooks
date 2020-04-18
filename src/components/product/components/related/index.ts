@@ -1,1 +1,1 @@
-export { default } from './related';
+export { default } from './Related';
