@@ -11,6 +11,7 @@ header {
     align-items: center;
     border-bottom:1px solid #e5e5e5;
     transition: all 0.3s ease 0s;
+    z-index:10;
     .menus {
         position:fixed;
         top:56px;
@@ -33,7 +34,8 @@ header {
         left:55px;
         border:none;
         padding:5px 95px 5px 35px;
-        position:static;
+        // position:static;
+        margin-bottom:40px;
     }
     .toggle-menu {
         height:15px;

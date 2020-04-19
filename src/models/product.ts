@@ -34,9 +34,9 @@ export interface RelatedProducts {
 }
 
 export interface Accomodation {
-    image: string,
-    thumb: string,
-    pdf: string
+    image?: string,
+    thumb?: string,
+    pdf?: string
 }
 
 export interface Descriptions {
@@ -46,12 +46,37 @@ export interface Descriptions {
     content?: string,
     image?: string,
     video?: string,
-    accomodation?: Accomodation 
+    accomodation: Accomodation 
+}
+
+export interface Comment {
+
+}
+
+export interface Post {
+    id: number;
+    post_title: string;
+    post_body: string;
+    user_id: number;
+    username: string;
+    post_date: string;
+    user_image: string;
+    user_rating: number;
+    comments?: Comment[]   
+}
+
+export interface ProductReviews {
+    product_id: number;
+    product_name: string;
+    count: number;
+    average_rating: number;
+    post: Post[]
 }
 
 export interface ProductDetails {
     id: number,
     details: ProductInfo,
     related: RelatedProducts[],
-    descriptions: Descriptions[]
+    descriptions: Descriptions[],
+    reviews: ProductReviews
 }

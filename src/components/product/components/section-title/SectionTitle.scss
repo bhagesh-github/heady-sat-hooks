@@ -1,0 +1,17 @@
+.section-title {
+    display:none;
+    @media only screen and (min-width:1200px) {
+        display:block;
+        color: #fcfcfc;
+        font-weight: bold;
+        font-size: 60px;
+        position: fixed;
+        top: 50%;
+        text-align: center;
+        margin: auto;
+        transform: rotate(270deg) translate(-50%, -11%);
+        transform-origin: 0 0;
+        z-index: 100;
+        line-height: 1;
+    }
+}

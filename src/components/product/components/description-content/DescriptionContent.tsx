@@ -6,8 +6,8 @@ const DescriptionContent: React.FunctionComponent<{description: Descriptions}> =
     return (
         <div className="description-content content-box">
             <div className="description-content-box">
-                <div className="image">
-                    <img src={description.image} alt=""/>
+                <div className="image" style={{backgroundImage: `url(${description.image})`}}>
+                    {/* <img src={description.image} alt=""/> */}
                 </div>
                 <div className="content">
                     <div className="title">

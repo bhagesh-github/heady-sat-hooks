@@ -1,3 +1,127 @@
 .related-products {
     margin-bottom:100px;
 }
+.main-content {
+    display:flex;
+    .sidebar {
+        flex:0 0 0;
+        @media only screen and (min-width:991px) {
+            flex:0 0 25%;
+        }
+    }
+    .wrapper {
+        flex: 0 0 100%;
+        @media only screen and (min-width:991px) {
+            flex:0 0 75%;
+        }
+    }
+}
+.content-box {
+    
+    // @media only screen and (min-width:991px) {
+    //     width:75%;
+    //     float:right;
+    // }
+}
+
+
+.section-menu {
+    position:fixed;
+    top:55px;
+    
+    width:100%;
+    background-color:#fff;
+    z-index:10;
+    &.mobile {
+        left:0 !important;
+    }
+    ul {
+        padding:0;
+        margin:0;
+        list-style:none;
+        li {
+            width:25%;
+            float:left;
+            text-align:center;
+            a {
+                display:block;
+                padding:10px;
+                &.active {
+                    background-color: #ffeaa1;
+                    color:#fff;
+                }
+            }
+            > div {
+                opacity:0;
+            }
+        }
+    }
+    .social-links {
+        display: none;
+        @media only screen and (min-width:991px) {
+        display:flex;
+        list-style: none;
+        padding:0;
+        margin:0 0 35px;
+        justify-content: flex-end;
+        li {
+            font-size:30px;
+            margin:0 20px;
+        }
+        a {
+            color:#000;
+        }
+        }
+    }
+    @media only screen and (min-width:991px) {
+        text-align:right;
+        position: fixed;
+        top:50%;
+        transform:translateY(-50%);
+        left:185px;
+        transition:all 0.3s ease 0s;
+        background:none;
+        width:auto;
+        ul {
+            padding:0;
+            margin:0;
+            li {
+                margin-bottom:35px;
+                list-style: none;
+                position: relative;
+                float:none;
+                text-align:right;
+                width: auto;
+                a {
+                    color:#000;
+                    display:inline-block;
+                    padding:0;
+                    &.active {
+                        background:none;
+                        color:#000;
+                    }
+                    > div {
+                        position: absolute;
+                        height: 10px;
+                        background-color: #ffeaa1;
+                        width: 500%;
+                        right: 0;
+                        display:none;
+                        opacity:1;
+                        &.active {
+                            display:block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.add-cart {
+    margin-top:10px;
+}
+.content-box {
+    @media only screen and (min-width: 991px) {
+        min-height: calc(100vh - 102px);
+    }
+}

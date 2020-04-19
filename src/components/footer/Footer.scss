@@ -2,6 +2,9 @@ footer {
     background-color:#ffd541;
     text-align: center;
     margin:0 -20px;
+    clear:both;
+    position: relative;
+    z-index:100;
     @media only screen and (min-width:991px) {
         padding-top:120px;
         margin:0;

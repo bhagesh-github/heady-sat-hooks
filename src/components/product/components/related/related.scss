@@ -9,6 +9,9 @@ h3 {
         text-align:center;
         padding:0 1px;
         width:50%;
+        @media only screen and (min-width: 768px) {
+            width:33.333%;
+        }
         @media only screen and (min-width:991px) {
             width:16.666%;
         }

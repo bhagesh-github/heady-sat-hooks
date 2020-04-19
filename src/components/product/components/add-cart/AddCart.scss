@@ -1,0 +1,39 @@
+.add-cart {
+    display:flex;
+    clear: both;
+    .quantity {
+        display:flex;
+        button {
+            width:35px;
+            height:40px;
+            margin:0;
+            padding:0;
+            text-align: center;
+            border:none;
+            background-color:#eeeeee;
+            color:#000;
+        }
+        input {
+            width:35px;
+            height:40px;
+            border:none;
+            background-color:#eeeeee;
+            color:#000;
+            text-align: center;
+            &:focus {
+                box-shadow: none;
+                outline: none;
+            }
+        }
+    }
+    .btn {
+        button {
+            background-color:#ffd541;
+            height:40px;
+            min-width: 175px;
+            border:none;
+            color:#fff;
+            text-transform: uppercase;
+        }
+    }
+}

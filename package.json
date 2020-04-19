@@ -17,6 +17,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "react-scroll": "^1.7.16",
     "typescript": "^3.7.5",
     "webfontloader": "^1.6.28"
   },
@@ -42,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-scroll": "^1.5.4",
     "@types/webfontloader": "^1.6.29"
   }
 }

@@ -3,8 +3,9 @@ import './Details.scss';
 import { ProductInfo } from '../../../../models/product';
 import Icon from '../../../icon';
 import Rating from '../../../rating';
+import AddCart from '../add-cart';
 
-const Details: React.FunctionComponent<{details: ProductInfo}> = ({details}) => {
+const Details: React.FunctionComponent<{details: ProductInfo, quantity: number, handleChange: any, reduceQunatity: any, increaseQunatity: any}> = ({details, quantity, handleChange, reduceQunatity, increaseQunatity}) => {
     const getIcon = (type: string) => {
         if (type === 'dispatch') {
             return <Icon icon="fa fa-truck"/>
@@ -54,6 +55,7 @@ const Details: React.FunctionComponent<{details: ProductInfo}> = ({details}) => 
                                     }
                                 </ul>
                             </div>
+                            <AddCart quantity={quantity} handleChange={handleChange} increaseQunatity={increaseQunatity} reduceQunatity={reduceQunatity}/>
                         </div>
                     </div>
                 </div>

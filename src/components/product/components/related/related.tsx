@@ -4,7 +4,7 @@ import { RelatedProducts } from '../../../../models/product';
 
 const Related: React.FunctionComponent<{products: RelatedProducts[]}> = ({products}) => {
     return (
-        <div className="related-products">
+        <div className="related-products content-box">
             <h3>Related Products</h3>
             <div className="product-list">
                 {

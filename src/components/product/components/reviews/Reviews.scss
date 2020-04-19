@@ -1,0 +1,59 @@
+.reviews-content-box {
+    margin-bottom:45px;
+    overflow:hidden;
+    .title  {
+        margin-bottom: 55px;
+        h2 {
+            font-size: 28px;
+            margin:0 0 10px;
+        }
+        .roverview {
+            span {
+                color:#cdcdcd;
+            }
+        }
+    }
+    .reviews {
+        .review {
+            margin-bottom:30px;
+            .review-user {
+                display:flex;
+                align-items: center;
+                margin-bottom:15px;
+                .avatar {
+                    width:35px;
+                    height:35px;
+                    border-radius:100%;
+                    overflow: hidden;
+                    margin-right:10px;
+                }
+                .user-info {
+                    div {
+                        &:first-child {
+                            font-weight:bold;
+                            margin-bottom:2px;
+                        }
+                        &:last-child {
+                            color:#cdcdcd;
+                        }
+                    }
+                }
+            }   
+            .review-title {
+                margin-bottom:20px;
+                h4 {
+                    font-size: 16px;
+                    font-weight:bold;
+                    margin:0 0 15px;
+                }
+            } 
+            .review-body {
+                p {
+                    color:#bfbfbf;
+                    line-height:1.7;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}

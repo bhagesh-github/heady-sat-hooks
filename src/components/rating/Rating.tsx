@@ -5,7 +5,7 @@ import Icon from '../icon';
 const Rating: React.FunctionComponent<{count: number}> = ({count}) => {
     const getRating = () => {
         const maxCount: number = 5;
-        const rating = count;
+        const rating = Math.round(count);
         let i: number = 0;
         let content = [];
         while(i < maxCount) {
