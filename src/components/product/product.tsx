@@ -1,43 +1,23 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 import './Product.scss';
-import Related from './components/related';
-import { ProductDetails } from '../../models/product';
+import SectionTitle from './components/section-title/SectionTitle';
+import SocialLinks from '../social-links/SocialLinks';
 import { ProductData } from '../../data/product';
-import Details from './components/details';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import Details from './components/details/Details';
+import Reviews from './components/reviews/Reviews';
+import Related from './components/related/Related';
 import DescriptionContent from './components/description-content';
 import DescriptionVideo from './components/description-video';
 import DescriptionAccomodation from './components/description-accomodation/DescriptionAccomodation';
-import Reviews from './components/reviews';
-import SectionTitle from './components/section-title';
-import SocialLinks from '../social-links/SocialLinks';
-import * as Scroll from 'react-scroll';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
-interface Props {
+const Product: React.FunctionComponent<any> = () => {
+    const [activeSectionTitle, setActiveSectionTitle] = useState('');
+    const [activeSection, setActiveSection] = useState('');
+    const [product, setProduct] = useState(ProductData);
+    const [quantity, setQuantity] = useState(0);
 
-}
-
-interface State {
-    product: ProductDetails,
-    activeSection: string,
-    selectedColor: number | null,
-    quantity: number,
-    activeTitle: string
-}
-
-class Product extends Component<Props, State> {
-    // state: State;
-    constructor(props: Props) {
-        super(props)
-        this.state = {
-            product: ProductData,
-            activeSection: '',
-            selectedColor: null,
-            quantity: 0,
-            activeTitle:''
-        }
-    }
-    componentDidMount() {
+    useEffect(() => {
         let lastResize = 0;
         window.addEventListener('resize', () => {
             let windowWidth = window.innerWidth;
@@ -65,149 +45,123 @@ class Product extends Component<Props, State> {
             }
             lastResize = windowWidth;
         }, false)
+    }, [])
+
+    const handleSetActive = (to: any) => {
+        let activeSection = to;
+        switch(activeSection) {
+            case 'test1':
+                setActiveSectionTitle('Details');
+                setActiveSection('');
+                break;
+            case 'test2':
+                setActiveSectionTitle('Description');
+                setActiveSection('desp1');
+                break;
+            case 'test3':
+                setActiveSectionTitle('Description');
+                setActiveSection('desp2');
+                break;
+            case 'test4':
+                setActiveSectionTitle('Description');
+                setActiveSection('desp3');
+                break;
+            case 'test5':
+                setActiveSectionTitle('Reviews');
+                setActiveSection('');
+                break;
+            case 'test6':
+                setActiveSectionTitle('Related Products');
+                setActiveSection('');
+                break;
+            default:
+                setActiveSectionTitle('Details');
+                setActiveSection('');
+        }
     }
 
-    renderDescriptions() {
+    const renderDescriptions = () => {
         let descriptions: any = [];
-        this.state.product.descriptions.map(desp => {
+        product.descriptions.map(desp => {
             if (desp.type === 1) {
-                descriptions.push(<Element name="test2" className={`element ${this.state.activeSection === 'desp1' ? 'active' : ''}`} key={desp.id}><DescriptionContent  description={desp}/></Element>)
+                descriptions.push(<Element name="test2" className={`element ${activeSection === 'desp1' ? 'active' : ''}`} key={desp.id}><DescriptionContent  description={desp}/></Element>)
             } else if (desp.type === 2) {
-                descriptions.push(<Element name="test3" className={`element ${this.state.activeSection === 'desp2' ? 'active' : ''}`} key={desp.id}><DescriptionVideo description={desp}/></Element>)
+                descriptions.push(<Element name="test3" className={`element ${activeSection === 'desp2' ? 'active' : ''}`} key={desp.id}><DescriptionVideo description={desp}/></Element>)
             } else {
-                descriptions.push(<Element name="test4" className={`element ${this.state.activeSection === 'desp3' ? 'active' : ''}`} key={desp.id}><DescriptionAccomodation  description={desp}/></Element>)
+                descriptions.push(<Element name="test4" className={`element ${activeSection === 'desp3' ? 'active' : ''}`} key={desp.id}><DescriptionAccomodation  description={desp}/></Element>)
             }
         })
         return descriptions;
     }
 
-    handleChange = (event: any) => {
-        this.setState({
-            quantity: event.target.value
-        })
+    const handleChange = (event: any) => {
+        setQuantity(event.target.value);
     }
 
-    reduceQunatity = () => {
-        let quantity = this.state.quantity ? this.state.quantity - 1 : 0;
-        this.setState({
-            quantity
-        })
+    const reduceQunatity = () => {
+        setQuantity((quantity) => quantity ? quantity - 1 : 0)
     }
 
-    increaseQunatity = () => {
-        let quantity = this.state.quantity + 1;
-        this.setState({
-            quantity
-        })
+    const increaseQunatity = () => {
+        setQuantity((quantity) => quantity + 1)
     }
 
-
-    handleSetActive = (to: any) => {
-        let activeSection = to;
-        switch(activeSection) {
-            case 'test1':
-                this.setState({
-                    activeTitle: 'Details',
-                    activeSection: ''
-                })
-                break;
-            case 'test2':
-                this.setState({
-                    activeTitle: 'Description',
-                    activeSection: 'desp1'
-                })
-                break;
-            case 'test3':
-                this.setState({
-                    activeTitle: 'Description',
-                    activeSection: 'desp2'
-                })
-                break;
-            case 'test4':
-                this.setState({
-                    activeTitle: 'Description',
-                    activeSection: 'desp3'
-                })
-                break;
-            case 'test5':
-                this.setState({
-                    activeTitle: 'Reviews',
-                    activeSection: ''
-                })
-                break;
-            case 'test6':
-                this.setState({
-                    activeTitle: 'Related Products',
-                    activeSection: ''
-                })
-                break;
-            default:
-                this.setState({
-                    activeTitle: 'Details',
-                    activeSection: ''
-                })
-
-        }
-    }
-
-    render() {
-        return (
-            <div className="main-content">
-                <div className="sidebar">
-                    <SectionTitle title={this.state.activeTitle}/>
-                    <div className="section-menu" id="sectionMenu">
-                        <ul>
-                            <li>
-                                <Link activeClass="active" to="test1" spy={true} smooth={true} offset={-157} duration={500} onSetActive={this.handleSetActive}>
-                                    Details
-                                    <div className={this.state.activeTitle === 'Details' ? 'active' : ''}></div>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link activeClass="active" to="test2" spy={true} smooth={true} offset={-150} duration={500} onSetActive={this.handleSetActive}>
+    return (
+        <div className="main-content">
+            <div className="sidebar">
+                <SectionTitle title={activeSectionTitle}/>
+                <div className="section-menu" id="sectionMenu">
+                    <ul>
+                        <li>
+                            <Link activeClass="active" to="test1" spy={true} smooth={true} offset={-157} duration={500} onSetActive={handleSetActive}>
+                                Details
+                                <div className={activeSectionTitle === 'Details' ? 'active' : ''}></div>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link activeClass="active" to="test2" spy={true} smooth={true} offset={-150} duration={500} onSetActive={handleSetActive}>
+                                Description
+                                <div className={(activeSection === 'desp1' || activeSection === 'desp2' || activeSection === 'desp3') ? 'active' : ''}></div>
+                            </Link>
+                                <div style={{opacity:0, visibility: 'hidden', display: 'none'}}>
+                                <Link activeClass="active" to="test3" spy={true} smooth={true} offset={-150} duration={500} onSetActive={handleSetActive}>
                                     Description
-                                    <div className={(this.state.activeSection === 'desp1' || this.state.activeSection === 'desp2' || this.state.activeSection === 'desp3') ? 'active' : ''}></div>
                                 </Link>
-                                    <div style={{opacity:0, visibility: 'hidden', display: 'none'}}>
-                                    <Link activeClass="active" to="test3" spy={true} smooth={true} offset={-150} duration={500} onSetActive={this.handleSetActive}>
-                                        Description
-                                    </Link>
-                                    <Link activeClass="active" to="test4" spy={true} smooth={true} offset={-150} duration={500} onSetActive={this.handleSetActive}>
-                                        Description
-                                    </Link>
-                                </div>
-                            </li>
-                            <li>
-                                <Link activeClass="active" to="test5" spy={true} smooth={true} offset={-160} duration={500} onSetActive={this.handleSetActive}>
-                                    Reviews
-                                    <div className={this.state.activeTitle === 'Reviews' ? 'active' : ''}></div>
+                                <Link activeClass="active" to="test4" spy={true} smooth={true} offset={-150} duration={500} onSetActive={handleSetActive}>
+                                    Description
                                 </Link>
-                            </li>
-                            <li>
-                                <Link activeClass="active" to="test6" spy={true} smooth={true} offset={-157} duration={500} onSetActive={this.handleSetActive}>
-                                    Related Products
-                                    <div className={this.state.activeTitle === 'Related Products' ? 'active' : ''}></div>
-                                </Link>
-                            </li>
-                        </ul>
-                        <SocialLinks/>
-                    </div>
-                </div>
-                <div className="wrapper">
-                    <Element name="test1" className="element">
-                        <Details details={this.state.product.details} quantity={this.state.quantity} handleChange={this.handleChange} reduceQunatity={this.reduceQunatity} increaseQunatity={this.increaseQunatity}/>
-                    </Element>
-                    {this.renderDescriptions()}
-                    <Element name="test5" className="element">
-                        <Reviews review={this.state.product.reviews}/>
-                    </Element>
-                    <Element name="test6" className="element">
-                        <Related products={this.state.product.related}/>
-                    </Element>
+                            </div>
+                        </li>
+                        <li>
+                            <Link activeClass="active" to="test5" spy={true} smooth={true} offset={-160} duration={500} onSetActive={handleSetActive}>
+                                Reviews
+                                <div className={activeSectionTitle === 'Reviews' ? 'active' : ''}></div>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link activeClass="active" to="test6" spy={true} smooth={true} offset={-157} duration={500} onSetActive={handleSetActive}>
+                                Related Products
+                                <div className={activeSectionTitle === 'Related Products' ? 'active' : ''}></div>
+                            </Link>
+                        </li>
+                    </ul>
+                    <SocialLinks/>
                 </div>
             </div>
-        )
-    }
+            <div className="wrapper">
+                <Element name="test1" className="element">
+                    <Details details={product.details} quantity={quantity} handleChange={handleChange} reduceQunatity={reduceQunatity} increaseQunatity={increaseQunatity}/>
+                </Element>
+                {renderDescriptions()}
+                <Element name="test5" className="element">
+                    <Reviews review={product.reviews}/>
+                </Element>
+                <Element name="test6" className="element">
+                    <Related products={product.related}/>
+                </Element>
+            </div>
+        </div>
+    )
 }
 
 export default Product;
